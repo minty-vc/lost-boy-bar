@@ -6,7 +6,6 @@
 <title>Lost Boy Bar</title>
 
 <style>
-/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
@@ -21,7 +20,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -31,7 +30,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:14px 28px;
-  background:rgba(10,8,8,0.6);
+  background:rgba(10,8,8,0.75);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,180,80,0.15);
 }
@@ -55,7 +54,7 @@ nav a:hover{
   opacity:1;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
@@ -63,37 +62,11 @@ nav a:hover{
   justify-content:center;
   text-align:center;
   position:relative;
-  overflow:hidden;
   padding:20px;
   background:
     radial-gradient(circle at 20% 20%, rgba(255,140,0,0.15), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(255,180,80,0.1), transparent 50%),
     linear-gradient(180deg,#120d0c,#0e0b0a);
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255,180,80,0.03),
-    rgba(255,180,80,0.03) 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  animation:move 20s linear infinite;
-}
-
-@keyframes move{
-  from{transform:translate(0,0);}
-  to{transform:translate(-100px,-100px);}
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
 }
 
 .hero h1{
@@ -116,6 +89,7 @@ nav a:hover{
   text-decoration:none;
   border-radius:8px;
   transition:0.3s;
+  margin-right:10px;
 }
 
 .btn:hover{
@@ -123,26 +97,18 @@ nav a:hover{
   color:#0e0b0a;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS (ВАЖНО: БЕЗ HIDE BY DEFAULT) */
 section{
   padding:90px 18%;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
 }
 
-section.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
+/* ABOUT */
 h2{
   color:#ffb35c;
   margin-bottom:20px;
   font-size:32px;
 }
 
-/* ===== ABOUT ===== */
 .about p{
   line-height:1.6;
   opacity:0.85;
@@ -163,13 +129,7 @@ h2{
   border:1px solid rgba(255,180,80,0.1);
 }
 
-.feature span{
-  font-size:28px;
-  display:block;
-  margin-bottom:8px;
-}
-
-/* ===== MENU ===== */
+/* MENU */
 .tabs{
   display:flex;
   flex-wrap:wrap;
@@ -208,7 +168,7 @@ h2{
   margin-top:8px;
 }
 
-/* ===== GALLERY ===== */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -223,7 +183,6 @@ h2{
   align-items:center;
   justify-content:center;
   font-size:14px;
-  opacity:0.9;
   transition:0.3s;
 }
 
@@ -232,7 +191,7 @@ h2{
   border:1px solid #ffb35c;
 }
 
-/* ===== REVIEWS ===== */
+/* REVIEWS */
 .reviews{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -251,7 +210,7 @@ h2{
   margin-bottom:6px;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   padding:60px 18%;
   background:#0b0807;
@@ -263,7 +222,7 @@ footer{
   opacity:0.7;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:768px){
   section{
     padding:70px 8%;
@@ -290,8 +249,8 @@ footer{
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-content">
+<section class="hero">
+  <div>
     <h1>LOST BOY</h1>
     <p>Бар, где время немного потерялось…</p>
     <a class="btn" href="#menu">Меню</a>
@@ -300,18 +259,18 @@ footer{
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="about">
+<section id="about">
   <h2>О баре</h2>
   <p>
-    Кафе Lost Boy bar предлагает своим посетителям окунуться в атмосферу вкусной еды и прохладных напитков. 
+    Кафе Lost Boy bar предлагает своим посетителям окунуться в атмосферу вкусной еды и прохладных напитков.
     Здесь можно быстро и недорого перекусить как в одиночестве, так и с друзьями или семьей.
   </p>
 
   <div class="features">
-    <div class="feature"><span>🐶</span>Dog-friendly</div>
-    <div class="feature"><span>70</span>Мест</div>
-    <div class="feature"><span>🎲</span>Настольные игры</div>
-    <div class="feature"><span>📺</span>Спорт трансляции</div>
+    <div class="feature">🐶 Dog-friendly</div>
+    <div class="feature">70 мест</div>
+    <div class="feature">🎲 Настольные игры</div>
+    <div class="feature">📺 Спорт трансляции</div>
   </div>
 </section>
 
@@ -333,14 +292,12 @@ footer{
 <section id="gallery">
   <h2>Галерея</h2>
   <div class="gallery">
-    <div class="photo">Барная стойка</div>
-    <div class="photo">Интерьер 1</div>
-    <div class="photo">Интерьер 2</div>
+    <div class="photo">Бар</div>
+    <div class="photo">Интерьер</div>
+    <div class="photo">Атмосфера</div>
     <div class="photo">Кухня</div>
     <div class="photo">Гости</div>
     <div class="photo">Неон</div>
-    <div class="photo">Детали</div>
-    <div class="photo">Вечер</div>
   </div>
 </section>
 
@@ -348,26 +305,10 @@ footer{
 <section id="reviews">
   <h2>Отзывы</h2>
   <div class="reviews">
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      Отличное место, атмосферно и уютно. Часто приходим с друзьями.
-    </div>
-    <div class="review">
-      <div class="stars">★★★★☆</div>
-      Хорошие коктейли, приятная музыка, но бывает многолюдно.
-    </div>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      Очень понравилось! Особенно настолки и дружелюбная атмосфера.
-    </div>
-    <div class="review">
-      <div class="stars">★★★★☆</div>
-      Отличный спорт-бар, смотрели матч — эмоции топ.
-    </div>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      Лучшее место рядом с метро, возвращаемся снова и снова.
-    </div>
+    <div class="review"><div class="stars">★★★★★</div>Очень атмосферное место, уютно и приятно.</div>
+    <div class="review"><div class="stars">★★★★☆</div>Хорошие коктейли и музыка, вернусь ещё.</div>
+    <div class="review"><div class="stars">★★★★★</div>Лучший бар рядом с метро!</div>
+    <div class="review"><div class="stars">★★★★☆</div>Настолки — топ, можно зависнуть надолго.</div>
   </div>
 </section>
 
@@ -376,7 +317,7 @@ footer{
   <h2>Контакты</h2>
   <p>📍 Москва, м. Черкизовская, ул. Амурская, д. 1А, к. 3</p>
   <p>⏰ Ежедневно 13:00 – 23:00</p>
-  <p>🗺 Открыть в карте (текстовая ссылка)</p>
+  <p>🗺 Открыть на карте</p>
 
   <div class="socials">
     <span>Instagram</span>
@@ -386,26 +327,23 @@ footer{
 </footer>
 
 <script>
-// ===== MENU DATA =====
+// MENU
 const data = {
   snacks: [
     {name:"Крылья BBQ", price:"390₽"},
-    {name:"Картофель фри с пармезаном", price:"320₽"},
-    {name:"Начос с сыром", price:"450₽"}
+    {name:"Начос", price:"450₽"},
+    {name:"Фри с сыром", price:"320₽"}
   ],
   main: [
     {name:"Бургер Lost Boy", price:"590₽"},
-    {name:"Паста с курицей", price:"520₽"},
-    {name:"Стейк с соусом", price:"890₽"}
+    {name:"Паста", price:"520₽"}
   ],
   drinks: [
-    {name:"Лимонад цитрус", price:"250₽"},
-    {name:"Крафтовое пиво", price:"320₽"},
-    {name:"Чай авторский", price:"220₽"}
+    {name:"Лимонад", price:"250₽"},
+    {name:"Пиво", price:"320₽"}
   ],
   cocktails: [
     {name:"Neon Dream", price:"520₽"},
-    {name:"Lost Old Fashioned", price:"580₽"},
     {name:"Amber Night", price:"540₽"}
   ]
 };
@@ -425,29 +363,7 @@ function showMenu(cat){
   event.target.classList.add("active");
 }
 
-// init
-showMenu('snacks');
-
-// ===== SCROLL ANIMATION =====
-const sections = document.querySelectorAll("section, footer");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{threshold:0.15});
-
-sections.forEach(sec=>observer.observe(sec));
-
-// ===== HERO PARALLAX =====
-document.addEventListener("mousemove", (e)=>{
-  const hero = document.querySelector(".hero");
-  let x = (window.innerWidth/2 - e.clientX)/30;
-  let y = (window.innerHeight/2 - e.clientY)/30;
-  hero.style.transform = `translate(${x}px, ${y}px)`;
-});
+showMenu("snacks");
 </script>
 
 </body>
